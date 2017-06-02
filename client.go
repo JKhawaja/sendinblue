@@ -253,7 +253,7 @@ func (c *Client) ListTemplates(t *TemplateList) (TemplateListResponse, error) {
 	r := bytes.NewReader(body)
 
 	url := fmt.Sprintf("https://api.sendinblue.com/v2.0/campaign/detailsv2")
-	req, err := http.NewRequest("GET", url, r)
+	req, err := http.NewRequest("POST", url, r)
 	if err != nil {
 		err := fmt.Errorf("Could not create http request: %+v", err)
 		return emptyResp, err

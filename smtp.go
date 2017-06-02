@@ -149,8 +149,8 @@ type TemplateResponse struct {
 
 type TemplateListData struct {
 	Campaign_records       []CampaignData `json:"campaign_records"`
-	Page                   int            `json:"page"`
-	Page_limit             int            `json:"page_limit"`
+	Page                   string         `json:"page"`
+	Page_limit             string         `json:"page_limit"`
 	Total_campaign_records int            `json:"total_campaign_records"`
 }
 
