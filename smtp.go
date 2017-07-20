@@ -132,9 +132,9 @@ type EmailData struct {
 }
 
 type EmailResponse struct {
-	Code    string    `json:"code"`
-	Message string    `json:"message"`
-	Data    EmailData `json:"data"`
+	Code    string      `json:"code"`
+	Message string      `json:"message"`
+	Data    []EmailData `json:"data"`
 }
 
 type TemplateData struct {
