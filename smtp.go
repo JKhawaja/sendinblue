@@ -137,6 +137,12 @@ type EmailResponse struct {
 	Data    EmailData `json:"data"`
 }
 
+type EmailResponseError struct {
+	Code    string      `json:"code"`
+	Message string      `json:"message"`
+	Data    []EmailData `json:"data"`
+}
+
 type TemplateData struct {
 	ID int `json:"id"`
 }
