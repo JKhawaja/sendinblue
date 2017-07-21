@@ -418,8 +418,14 @@ func (c *Client) SendTemplateEmail(id int, to []string, e *EmailOptions) (EmailR
 	var response EmailResponse
 	err = json.Unmarshal(b, &response)
 	if err != nil {
-		err := fmt.Errorf("Could not decode response format: %+v", err)
-		return emptyResp, err
+		var responseError EmailResponseError
+		if err = json.Unmarshal(b, &responseError); err != nil {
+			err := fmt.Errorf("Could not decode response format: %+v", err)
+			return emptyResp, err
+		} else {
+			err := fmt.Errorf(responseError.Message)
+			return emptyResp, err
+		}
 	}
 
 	return response, nil
